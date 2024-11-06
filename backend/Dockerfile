@@ -1,12 +1,11 @@
-FROM node:13-alpine
+FROM node:14
 
-WORKDIR /usr/backend
+WORKDIR /app/backend
 
 COPY . .
-RUN rm -rf node_modules/ package-lock.json
 
-RUN npm install nodemon
 RUN npm install
 
+RUN npm install nodemon
 
-CMD ["sh", "-c", "npm run start"]
+CMD ["npm", "start"]
