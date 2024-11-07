@@ -47,7 +47,7 @@ jobs:
           folder_name=${{github.event.inputs.directory}}
 
           # Build and tag the Docker image
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:${folder_name}-$IMAGE_TAG -f ${foldername}/Dockerfile .
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:${folder_name}-$IMAGE_TAG -f ${folder_name}/Dockerfile .
 
           # Push the Docker image to ECR
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:${folder_name}-$IMAGE_TAG
