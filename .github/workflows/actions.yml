@@ -8,9 +8,9 @@ on:
          required: true
          type: choice
          options:
-          -backend
-          -frontend
-          -user-portal-frontend
+           - backend
+           - frontend
+           - user-portal-frontend
 
   push:
     branches:
