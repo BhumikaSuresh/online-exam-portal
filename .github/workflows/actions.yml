@@ -36,10 +36,10 @@
             ECR_REPOSITORY: ${{ secrets.REPO_NAME }}
             IMAGE_TAG: ${{ steps.get-commit-hash.outputs.commit-hash }}
           run:
-            # Find all folders with a Dockerfile
+           # Find all folders with a Dockerfile
            for dir in $(find . -name 'Dockerfile' -exec dirname {} \;); do
             # Extract the folder name to use as part of the image tag
              folder_name=$(basename "$dir")
 
-             docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:${folder_name}-$IMAGE_TAG -f backend/Dockerfile .
+             docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:${folder_name}-$IMAGE_TAG -f "$dir/Dockerfile" "$dir" .
              docker push $ECR_REGISTRY/$ECR_REPOSITORY:${folder_name}-$IMAGE_TAG
