@@ -6,6 +6,12 @@ on:
       directory:
          discription: 'The directory for which the image as to be built'
          required: true
+         type: choice
+         options:
+           -backend
+           -frontend
+           -user-portal-frontend
+
   push:
     branches:
       - dev
